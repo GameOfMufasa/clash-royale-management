@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+</head>
+<body>
+<table id="usersTable" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Tag</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Trophies</th>
+        <th>Last Played</th>
+        <th>First Seen</th>
+    </tr>
+    </thead>
+</table>
+<script>
+    $(document).ready(function () {
+        var table = $('#usersTable').DataTable({
+            "ajax": '/data',
+            "columns": [
+                { "data": "tag" },
+                { "data": "name" },
+                { "data": "role" },
+                { "data": "trophies" },
+                { "data": "lastPlayedString" },
+                { "data": "firstSeen" }
+            ],
+            "pageLength": 50
+        });
+        function refreshData() {
+            $.ajax("/refresh").done(function(data) {
+                if(data && data.reason) {
+                    alert(data);
+                } else {
+                    table.ajax.reload();
+                }
+            }).fail(function(err) {
+                alert(err);
+            });
+        }
+        $("label").first().parent().append("<label><a style='padding-left: 20px' href='#refresh' id='refresh'>Refresh Data</a>")
+        $("#refresh").click(function() {
+            refreshData();
+        })
+    });
+</script>
+</body>
+</html>

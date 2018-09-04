@@ -1,0 +1,26 @@
+{
+  "clan": {
+    "id": "",
+    "past_war_logs_limit": 5
+  },
+  "authKey": "",
+  "server": {
+    "port": 8080,
+    "hostname": "127.0.0.1",
+    "files": {
+      "full_data": "data/full_data.json",
+      "datatable_json": "data/table_data.json"
+    },
+    "date_format": "DD/MM/YYYY HH:mm"
+  },
+  "defaults": {
+    "tag": null,
+    "name": null,
+    "role": null,
+    "trophies": null,
+    "battlesPlayed": null,
+    "lastPlayed": null,
+    "lastPlayedString": null,
+    "firstSeen": null
+  }
+}
