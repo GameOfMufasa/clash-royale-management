@@ -26,7 +26,7 @@ const makeGetRequest = (url) => {
             method: 'GET'
         }, function (err, res, body) {
             let json = JSON.parse(res.body);
-            if(json.reason) {
+            if (json.reason) {
                 reject(json);
             } else {
                 resolve(json);
@@ -35,6 +35,8 @@ const makeGetRequest = (url) => {
     });
 };
 
+const defaults = {"tag": null,"name": null,"role": null,"trophies": null,"battlesPlayed": null,"lastPlayed": null,"lastPlayedString": null,"firstSeen": null};
+
 const getClanMembers = clanID => makeGetRequest(util.format(apiInfo.clanMembers, clanID));
 
 const getWarLog = (clanID, limit) => makeGetRequest(util.format(apiInfo.clanWarLog + "?limit=" + limit, clanID));
@@ -42,9 +44,7 @@ const getWarLog = (clanID, limit) => makeGetRequest(util.format(apiInfo.clanWarL
 module.exports = (async () => {
     try {
         const _ = require("underscore");
-
-        const defaults = config.get("defaults");
-        const clanIDFull = config.get("clan").id.replace("#", "%23");
+        const clanIDFull = config.get("clan").tag.replace("#", "%23");
         const full_data_file = config.get("server").files.full_data;
         const data_file = config.get("server").files.datatable_json;
         const date_format = config.get("server").date_format;
@@ -72,7 +72,7 @@ module.exports = (async () => {
         let currentUsers = {};
 
         for (let user of members.items) {
-            if(!oldRecordsUsers[user.tag]) {
+            if (!oldRecordsUsers[user.tag]) {
                 currentUsers[user.tag] = _.extend({}, defaults);
                 currentUsers[user.tag].firstSeen = nowTimeForFirstSeen.format(date_format);
             } else {

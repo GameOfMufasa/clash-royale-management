@@ -1,6 +1,6 @@
 {
   "clan": {
-    "id": "",
+    "tag": "",
     "past_war_logs_limit": 5
   },
   "authKey": "",
@@ -12,15 +12,5 @@
       "datatable_json": "data/table_data.json"
     },
     "date_format": "DD/MM/YYYY HH:mm"
-  },
-  "defaults": {
-    "tag": null,
-    "name": null,
-    "role": null,
-    "trophies": null,
-    "battlesPlayed": null,
-    "lastPlayed": null,
-    "lastPlayedString": null,
-    "firstSeen": null
   }
 }

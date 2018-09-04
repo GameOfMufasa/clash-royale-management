@@ -10,7 +10,7 @@
   },
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/GameOfMufasa/clash-royale-managment.git"
+    "url" : "https://github.com/GameOfMufasa/clash-royale-management.git"
   },
   "dependencies": {
     "config": "^2.0.1",
