@@ -43,7 +43,7 @@
                     table.ajax.reload();
                 }
             }).fail(function(err) {
-                alert(err);
+                alert(err.responseJSON);
             });
         }
         $("label").first().parent().append("<label><a style='padding-left: 20px' href='#refresh' id='refresh'>Refresh Data</a>")

@@ -24,7 +24,7 @@ const hostname = config.get("server").hostname;
     app.get('/refresh', async (req, res) => {
         let response = await require('./app')();
         if(response && response.reason) {
-            res.status(401).json(response);
+            res.status(401).json(JSON.stringify(response));
         } else {
             res.sendStatus(200);
         }

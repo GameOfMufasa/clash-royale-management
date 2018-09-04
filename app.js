@@ -94,7 +94,6 @@ module.exports = (async () => {
                         currentUsers[participant.tag].battlesPlayed = (currentUsers[participant.tag].battlesPlayed || 0) + 1;
                         currentUsers[participant.tag].lastPlayed = warDate.valueOf();
                         currentUsers[participant.tag].lastPlayedString = warDate.format(date_format);
-
                     }
                 }
             }
