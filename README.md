@@ -18,10 +18,11 @@ Help you managed your clan with members information about your wars.
     2. Put your key in the config file and the clan tag you want to manage:
         1. Go to ```clash-royale-managment/config```
         2. Open ```default.json``` for editing
-        3. Under the ```clan``` property put the tag of your clan (should look something like this: ```#AB123CD```
+        3. Under the ```clan``` property put the tag of your clan (should look something like this: ```#AB123CD```)
         4. Put the authKey you created in step 1
         5. change port or other config you need
     3. Run this project:
         ```bash 
         npm run start
         ```
+    4. Go to ```http://localhost:8080```
