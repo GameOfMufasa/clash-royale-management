@@ -6,6 +6,7 @@ const app = express();
 
 const hostname = config.get("server").hostname;
 
+
 (async () => {
     if (!fs.existsSync(config.get("server").files.datatable_json)) {
         await require('./app')();

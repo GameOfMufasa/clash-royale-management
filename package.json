@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "start-home": "node server.js NODE_ENV=home",
-    "start-work": "node server.js NODE_ENV=work"
+    "start-work": "node server.js NODE_ENV=work",
+    "start-homes": "node server.js NODE_ENV=\"homes\"",
+    "start-ahomes": "node server.js NODE_ENV=\"ahomes\""
   },
   "repository": {
     "type": "git",

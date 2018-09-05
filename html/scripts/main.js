@@ -23,6 +23,7 @@ $(document).ready(function () {
     });
 
     $("#refresh").click(function (e) {
+        e.preventDefault();
         $(e.target).prop('disabled', true);
         $.ajax("/refresh").done(function (data) {
             if (data && data.reason) {
@@ -46,7 +47,7 @@ $(document).ready(function () {
         $select.find("option").each(function() {
             $(this).text("Show " + $(this).text() + " entries");
         });
-        $firstLabel.parent().append("<label><a class='btn btn-primary margin-left' href='#refresh' onclick="false" id='refresh'>Refresh Data</a></label>");
+        $firstLabel.parent().append("<label><a class='btn btn-primary margin-left' href='#refresh' id='refresh'>Refresh Data</a></label>");
 
         var $lastLabel = $label.last();
         var $el = $lastLabel.find("input");
