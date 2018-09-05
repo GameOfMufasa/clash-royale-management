@@ -9,23 +9,14 @@ $(document).ready(function () {
             {"data": "lastPlayedString"},
             {"data": "firstSeen"}
         ],
+        "order": [[ 4, "desc" ], [5, "desc"]],
         "pageLength": 50,
         responsive: true
     });
 
-    var $label = $("label");
-    var $firstLabel = $label.first();
-
-    var $select = $firstLabel.find("select").addClass("custom-select");
-    $select.find("option").each(function() {
-        $(this).text("Show " + $(this).text() + " entries");
-    });
-    $firstLabel.parent().append("<label><a class='btn btn-primary margin-left' href='#refresh' id='refresh'>Refresh Data</a></label>");
-
-    var $lastLabel = $label.last();
-    var $el = $lastLabel.find("input");
-    $lastLabel.text('').append($el);
-    $el.addClass("form-control").addClass("mr-sm-2").attr("placeholder", "Search").attr("id", "searchTable");
+    table.on( 'click', 'tr', function () {
+        $(this).toggleClass('selected');
+    } );
 
     $('#searchTable').keyup(function(){
         table.search($(this).val()).draw() ;
@@ -45,4 +36,23 @@ $(document).ready(function () {
             $(e.target).prop('disabled', false);
         });
     })
+
+    //region Style
+    var putSomeStyleInTheTable = function () {
+        var $label = $("label");
+        var $firstLabel = $label.first();
+
+        var $select = $firstLabel.find("select").addClass("custom-select");
+        $select.find("option").each(function() {
+            $(this).text("Show " + $(this).text() + " entries");
+        });
+        $firstLabel.parent().append("<label><a class='btn btn-primary margin-left' href='#refresh' onclick="false" id='refresh'>Refresh Data</a></label>");
+
+        var $lastLabel = $label.last();
+        var $el = $lastLabel.find("input");
+        $lastLabel.text('').append($el);
+        $el.addClass("form-control").addClass("mr-sm-2").attr("placeholder", "Search").attr("id", "searchTable");
+    };
+    putSomeStyleInTheTable();
+    //endregion
 });
