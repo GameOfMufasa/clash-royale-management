@@ -11,6 +11,6 @@
       "full_data": "data/full_data.json",
       "datatable_json": "data/table_data.json"
     },
-    "date_format": "DD/MM/YYYY HH:mm"
+    "date_format": "YYYY/MM/DD HH:mm"
   }
 }
