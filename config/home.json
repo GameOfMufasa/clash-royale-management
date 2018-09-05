@@ -3,7 +3,7 @@
     "tag": "",
     "past_war_logs_limit": 5
   },
-  "authKey": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6Ijk4NThmNjY4LTMxNzktNGYyYy05ZWY4LWYyYTc4YmU1NGFjYSIsImlhdCI6MTUzNTk5NjE1MCwic3ViIjoiZGV2ZWxvcGVyLzVlZjc1ODZjLTM2NTYtMDgzMC00MDkzLWM4YjlkZmJhMGI4OCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI4OS4xMzkuNzQuMTA3Il0sInR5cGUiOiJjbGllbnQifV19.kygIRQZEXqJm-NKsTV1upea78A5FxTFv9p-wunAGkKJwDVW0mie7dkMtQ7xruOyKHcJKyy3FT2VVKl-61u3d1A",
+  "authKey": "",
   "server": {
     "port": 8080,
     "hostname": "127.0.0.1",
