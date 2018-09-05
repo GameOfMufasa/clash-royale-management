@@ -18,8 +18,7 @@
         console.log("\tlimit \t\t- Limit the number of past wars to use.");
         console.log("\tport\t\t- The port you want this server to run on. (default is 8080)");
         console.log("\thostname\t- Server url (default is localhost > 127.0.0.1).");
-        console.log("\tfile_full\t- Set different name for the file that stores all the data.");
-        console.log("\tfile_table\t- Set different name for the file that stores data for the table.");
+        console.log("\tdata_file\t- Set different name for the file that stores all the data.");
         console.log("\tdate_format\t- Default is \"YYYY/MM/DD HH:mm\" (Best for sorting)");
         console.log("");
         console.log("Setting configurations like this: \n\tnode config.js conf_name=\"home\" clan_tag=\"#ABC1234\" ... ");
@@ -58,8 +57,7 @@
             "port": 8080,
             "hostname": "127.0.0.1",
             "files": {
-                "full_data": "data/full_data.json",
-                "datatable_json": "data/table_data.json"
+                "data_file": "data/data_file.json",
             },
             "date_format": "YYYY/MM/DD HH:mm"
         }
@@ -85,12 +83,8 @@
         defaultConfig.server.hostname = args["hostname"];
     }
 
-    if (args["file_full"]) {
-        defaultConfig.server.files.full_data = "data/" + args["file_full"];
-    }
-
-    if (args["file_table"]) {
-        defaultConfig.server.files.datatable_json = "data/" + args["file_table"];
+    if (args["data_file"]) {
+        defaultConfig.server.files.data_file = "data/" + args["data_file"];
     }
 
     if (args["date_format"]) {

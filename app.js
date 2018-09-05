@@ -15,7 +15,7 @@ const apiInfo = {
 };
 
 const makeGetRequest = (url) => {
-    console.log(url);
+    console.log("Sending request to: " + url);
     return new Promise((resolve, reject) => {
         request({
             headers: {
@@ -27,6 +27,7 @@ const makeGetRequest = (url) => {
         }, function (err, res, body) {
             let json = JSON.parse(res.body);
             if (json.reason) {
+                console.error(JSON.stringify(json));
                 reject(json);
             } else {
                 resolve(json);
@@ -45,17 +46,16 @@ module.exports = (async () => {
     try {
         const _ = require("underscore");
         const clanIDFull = config.get("clan").tag.replace("#", "%23");
-        const full_data_file = config.get("server").files.full_data;
-        const data_file = config.get("server").files.datatable_json;
+        const data_file = config.get("server").files.data_file || config.get("server").files.full_data;
         const date_format = config.get("server").date_format;
-        const hasOlderData = fs.existsSync(full_data_file);
+        const hasOlderData = fs.existsSync(data_file);
         const nowTimeForFirstSeen = moment();
 
         let oldRecordsUsers = {};
 
         if (hasOlderData) {
             let oldRecordsUsersAsync = new Promise((resolve, reject) => {
-                fs.readFile(full_data_file, 'utf8', (err, data) => {
+                fs.readFile(data_file, 'utf8', (err, data) => {
                     resolve(JSON.parse(data));
                 });
             });
@@ -99,12 +99,8 @@ module.exports = (async () => {
             }
         }
 
-        fs.writeFile(full_data_file, JSON.stringify(currentUsers, null, 2), 'utf8', () => {
-        });
-
-        let array = Object.values(currentUsers);
-        fs.writeFile(data_file, JSON.stringify({"data": array}, "", 2), 'utf8', () => {
-        });
+        fs.writeFile(data_file, JSON.stringify(currentUsers, null, 2), 'utf8', () => {});
+        console.log("Finished analyzing information from Clash Royale servers.")
     } catch (ex) {
         return ex;
     }

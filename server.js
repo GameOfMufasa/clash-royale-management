@@ -8,7 +8,7 @@ const hostname = config.get("server").hostname;
 
 
 (async () => {
-    if (!fs.existsSync(config.get("server").files.datatable_json)) {
+    if (!fs.existsSync(config.get("server").files.data_file || config.get("server").files.full_data)) {
         await require('./app')();
     }
     app.use(express.static('html'));
@@ -18,9 +18,11 @@ const hostname = config.get("server").hostname;
         res.send(fs.readFileSync(__dirname + '/html/index.html'));
     });
 
-    app.get('/data', (req, res) => {
+    app.get('/data', async (req, res) => {
         res.setHeader('Content-Type', 'text/html');
-        res.send(fs.readFileSync(__dirname + '/'+config.get("server").files.datatable_json));
+        let fullRecords = await new Promise((resolve, reject) => fs.readFile(__dirname + '/'+config.get("server").files.data_file, 'utf8', (err, data) => resolve(JSON.parse(data))));
+        let fullRecordsArray = Object.values(fullRecords);
+        res.status(200).json({"data": fullRecordsArray});
     });
 
     app.get('/refresh', async (req, res) => {

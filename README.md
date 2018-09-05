@@ -28,8 +28,7 @@ node config.js \
     authKey=<auth_key> \
     port=<port> \
     hostname=<hostname> \
-    file_full=<file_full> \
-    file_table=<file_table> \
+    data_file=<data_file> \
     date_format="<date_format>"
 ```
 * `conf_name`, `clan_tag` and `authkey` are <u><b>required</b></u>
