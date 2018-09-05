@@ -10,6 +10,7 @@ const hostname = config.get("server").hostname;
     if (!fs.existsSync(config.get("server").files.datatable_json)) {
         await require('./app')();
     }
+    app.use(express.static('html'));
 
     app.get('/', (req, res) => {
         res.setHeader('Content-Type', 'text/html');

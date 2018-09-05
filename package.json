@@ -1,6 +1,6 @@
 {
-  "name": "clash-royale-api",
-  "main": "src/server.js",
+  "name": "clash-royale-management",
+  "main": "server.js",
   "author": "GameOfMufasa <https://github.com/GameOfMufasa>",
   "license": "SEE LICENSE IN LICENSE FILE",
   "scripts": {
@@ -9,8 +9,8 @@
     "start-work": "node server.js NODE_ENV=work"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/GameOfMufasa/clash-royale-management.git"
+    "type": "git",
+    "url": "https://github.com/GameOfMufasa/clash-royale-management.git"
   },
   "dependencies": {
     "config": "^2.0.1",
