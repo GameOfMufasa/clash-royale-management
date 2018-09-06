@@ -7,3 +7,4 @@ node_modules
 /data/full_data.json
 /data/table_data.json
 /data/*
+/config/home.json

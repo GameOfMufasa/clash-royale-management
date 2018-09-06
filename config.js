@@ -96,7 +96,11 @@
 
     let packageJson = await new Promise((resolve, reject) => fs.readFile("package.json", 'utf8', (err, data) => resolve(JSON.parse(data))));
 
-    packageJson.scripts["start-" + args["conf_name"]] = "node server.js NODE_ENV=\"" + args["conf_name"] + "\"";
+    if(/^win/i.test(process.platform)) {
+        packageJson.scripts["start-" + args["conf_name"]] = "SET NODE_ENV=" + args["conf_name"] + "&& node server.js";
+    } else {
+        packageJson.scripts["start-" + args["conf_name"]] = "NODE_ENV=" + args["conf_name"] + "&& node server.js";
+    }
 
     fs.writeFile("package.json", JSON.stringify(packageJson, "", 2), 'utf8', () => {});
 
