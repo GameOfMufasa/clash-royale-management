@@ -1,5 +1,5 @@
 ## Information:
-Help you managed your clan with members information about your wars.
+Help you manage your clan with members information about your wars.
 
 ## Development
 Make sure you have installed [Node.js](https://nodejs.org/en/download/) on your development machine.
