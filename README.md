@@ -4,7 +4,7 @@ Help you manage your clan with members information about your wars.
 ## Development
 Make sure you have installed [Node.js](https://nodejs.org/en/download/) on your development machine.
 
-##### Generating Access Token:
+#### Generating Access Token:
 By registering to the Clash Royale Developer site: https://developer.clashroyale.com/#/register
 * Register in the link above.
 * Confirm your account and login.
@@ -13,14 +13,14 @@ By registering to the Clash Royale Developer site: https://developer.clashroyale
 * Create your new key.
 
 
-##### Install
+#### Install
 ```bash 
 git clone https://github.com/GameOfMufasa/clash-royale-management.git
 cd clash-royale-managment
 npm install
 ```
 
-##### Generate config file
+#### Generate config file
 ```bash 
 node config.js \
     conf_name=<conf_name> \
@@ -48,7 +48,7 @@ all other variables can be remove, for example:
     ```
 
 
-##### Run
+#### Run
 * To run the server with the `default` config file:
     ```bash 
     npm run start
