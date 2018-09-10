@@ -1,6 +1,8 @@
 ## Information:
 Help you manage your clan with members information about your wars.
 
+## If you have any suggestions on what to add please write it in [issues](https://github.com/GameOfMufasa/clash-royale-management/issues)
+
 ## Development
 Make sure you have installed [Node.js](https://nodejs.org/en/download/) on your development machine.
 
